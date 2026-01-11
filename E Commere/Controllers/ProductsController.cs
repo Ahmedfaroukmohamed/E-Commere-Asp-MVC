@@ -1,4 +1,5 @@
 ﻿using E_Commere.Data;
+using E_Commere.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,7 +14,9 @@ namespace E_Commere.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var product = await _context.Products.ToListAsync();
+            var product = await _context.Products.Include(x=> x.Category)
+                .OrderBy(x=> x.Price)
+                .ToListAsync();
             return View(product);
         }
     }
