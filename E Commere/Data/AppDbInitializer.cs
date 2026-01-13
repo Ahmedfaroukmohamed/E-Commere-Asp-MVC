@@ -1,4 +1,5 @@
-﻿using E_Commere.Models;
+﻿using E_Commere.Data.Enums;
+using E_Commere.Models;
 
 namespace E_Commere.Data
 {

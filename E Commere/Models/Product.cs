@@ -1,4 +1,4 @@
-﻿using E_Commere.Data;
+﻿using E_Commere.Data.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace E_Commere.Models
