@@ -1,9 +1,10 @@
-﻿using E_Commere.Data.Enums;
+﻿using E_Commere.Data.Base;
+using E_Commere.Data.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace E_Commere.Models
 {
-    public class Product
+    public class Product :IBaseEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

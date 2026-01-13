@@ -57,9 +57,8 @@ namespace E_Commere.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Category category)
         {
-            var categoryId = await services.GetByIdAsync(category.Id);
 
-            if (!ModelState.IsValid && categoryId == null) 
+            if (!ModelState.IsValid) 
             {
                 return View("Not Found");
             }
