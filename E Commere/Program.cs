@@ -11,6 +11,7 @@ builder.Services.AddDbContext<EcommerceDbContext>(op=>
 });
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ICategoryServices, CategoryServices>();
+builder.Services.AddScoped<IProductService, ProductService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -38,8 +38,4 @@
 	</div>
 </div>
 
-<div class="text-white" style="position:fixed;right:50px;bottom:70px;">
-	<a asp-action="Create" asp-controller="Categories" class="btn btn-outline-success">
-		<i class="fas fa-reqular fa-plus-square mr-2"></i>
-		Create</a>
-</div>
+@await Html.PartialAsync("_CreateItem","Categories")

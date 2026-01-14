@@ -1,0 +1,71 @@
+﻿@using E_Commere.Data.Enums
+@model Product
+@{
+	ViewData["Title"] = "Create New Product";
+	var category = new SelectList(ViewBag.CategoryId, "Id", "Name");
+}
+
+<div class="row">
+	<div class="col-md-8 offset-2">
+		<p>
+			<h2 class="text-center">Add New Category</h2>
+		</p>
+	</div>
+	<div class="col-md-6 offset-3">
+		<form asp-action="Create">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="mb-3">
+				<label asp-for="Name" class="form-label"></label>
+				<input asp-for="Name" class="form-control" autocomplete="off" />
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label asp-for="Price" class="form-label"></label>
+				<input asp-for="Price" class="form-control" autocomplete="off" />
+				<span asp-validation-for="Price" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label asp-for="ImageUrl" class="form-label"></label>
+				<input asp-for="ImageUrl" class="form-control" autocomplete="off" />
+				<span asp-validation-for="ImageUrl" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label asp-for="Description" class="form-label"></label>
+				<textarea asp-for="Description" class="form-control"></textarea>
+				<span asp-validation-for="Description" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label asp-for="productColor" class="form-label"></label>
+				<select asp-for="productColor" asp-items="@Html.GetEnumSelectList<ProductColor>()" class="form-control" autocomplete="off">
+				</select>
+				<span asp-validation-for="productColor" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label>Category Name</label>
+				<select asp-for="CategoryId" asp-items="@category" class="form-control"  >
+				</select>
+				<span asp-validation-for="CategoryId" class="text-danger"></span>
+			</div>
+			<div class="col-md-4 offset-4 text-center">
+				<img style="width:100%" id="ImgePreview"/>
+			</div>
+			<div class="mb-3">
+				<input type="submit" value="Create" class="btn btn-outline-success float-end" />
+				<a asp-action="Index" class="btn btn-outline-secondary">Show All Category</a>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts
+{
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	<script>
+		$("#ImageUrl").on("input", function () {
+			$("#ImgePreview").attr("src", $(this).val());
+		});
+	</script>
+
+}

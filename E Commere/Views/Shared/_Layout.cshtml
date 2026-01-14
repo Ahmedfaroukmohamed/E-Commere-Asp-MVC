@@ -28,8 +28,8 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
                         </li>
                     </ul>
-                    <form class="d-flex" style="padding-right:90px">
-                        <input type="text" class="form-control" placeholder="Search here..." />
+                    <form class="d-flex" style="padding-right:90px" asp-action="Index" asp-controller="Products" >
+                        <input name="SearchTerm" type="text" class="form-control" placeholder="Search here..." autocomplete="off" />
                         <button type="submit" class="btn btn-success">
                             <i class="fas fa-regular fa-search"></i>
                         </button>

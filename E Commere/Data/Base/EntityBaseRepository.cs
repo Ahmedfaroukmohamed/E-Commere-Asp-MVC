@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System.Linq.Expressions;
 
 namespace E_Commere.Data.Base
 {
@@ -30,7 +31,20 @@ namespace E_Commere.Data.Base
 
         public async Task<IEnumerable<T>> GetAllAsync()
             =>await entity.ToListAsync();
-        
+
+        public async Task<IEnumerable<T>> GetAllAsync(params Expression<Func<T, object>>[] include)
+        {
+             IQueryable<T> query = entity.AsQueryable();
+            query = include.Aggregate(query,(current ,include)=> current.Include(include));
+            return await query.ToListAsync();
+        }
+
+        public async Task<T> GetByIdAsync(int id, params Expression<Func<T, object>>[] include)
+        {
+            IQueryable<T> query = entity.AsQueryable();
+            query = include.Aggregate(query, (current, include) => current.Include(include));
+            return await query.FirstOrDefaultAsync(x=> x.Id==id);
+        }
 
         public async Task<T> GetByIdAsync(int id)
             => await entity.FirstOrDefaultAsync(x=> x.Id==id);
