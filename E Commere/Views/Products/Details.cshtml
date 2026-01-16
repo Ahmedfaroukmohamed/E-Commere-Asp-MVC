@@ -12,7 +12,8 @@
 			<p>@Model.Description</p>
 			<p style="color:@Model.productColor">@Model.productColor</p>
 			<p>@Model.Category.Name</p>
-			<button class="btn btn-outline-success">
+			<button class="btn btn-outline-success" asp-action="AddToCart"
+					asp-controller="Orders" asp-route-id="@Model.Id">
 				<i class="fa-reqular fa-shopping-basket mr-2" ></i>
 				Add To Cart</button>
 		</div>

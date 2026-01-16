@@ -1,4 +1,4 @@
-html {
+﻿html {
   font-size: 14px;
 }
 
@@ -49,4 +49,23 @@ body {
 
     .card button:hover {
         opacity: 0.7;
+    }
+
+.btn-add-cart {
+    background-color: #2ea44f; /* أخضر غني ولمّاع */
+    color: #ffffff;
+    border: 1px solid #238636;
+    box-shadow: 0 2px 4px rgba(46, 164, 79, 0.4);
+    transition: all 0.2s ease-in-out;
+}
+
+    .btn-add-cart:hover {
+        background-color: #238636; /* أغمق شوية */
+        box-shadow: 0 4px 8px rgba(35, 134, 54, 0.5);
+        transform: translateY(-1px);
+    }
+
+    .btn-add-cart:active {
+        background-color: #1f6f43;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
     }

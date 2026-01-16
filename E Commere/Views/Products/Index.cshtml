@@ -23,10 +23,14 @@
 				<p>@item.Description</p>
 				<p style="color:@item.productColor">@item.productColor</p>
 				<p>@item.Category.Name</p>
-				<button class="btn btn-outline-success">
-					<i class="fa-reqular fa-shopping-basket mr-2"></i>
+				<a class="btn btn-add-cart"
+				   asp-action="AddToCart"
+				   asp-controller="Orders"
+				   asp-route-id="@item.Id">
+					<i class="fa-solid fa-shopping-basket me-2"></i>
 					Add To Cart
-				</button>
+				</a>
+
 			</div>
 		</div>
 	}
